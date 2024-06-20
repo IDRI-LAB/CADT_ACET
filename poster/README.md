@@ -7,10 +7,10 @@ Based on the I6pd2 style created by Thomas Deselaers an Philippe Dreuw.
 
 Written by Ye Kyaw Thu
 Last updated: 25 July 2023  
-email: yktnlp@gmail.com
+
 
 Updated by Peng Lykheang
-Email: khiengly7@gmail.com
+
 
 ## How to Compile and Open the PDF Poster
 
