@@ -1,15 +1,15 @@
 # CADT Latex Poster Template
 
-ACET 2022 allows authors to use your favourite software for preparing posters such as Adobe Illustrator, Microsoft PowerPoint. We also prepared a beamer poster style latex template (default to A0 size) for the academic/scientific community.  
+ACET template allows authors to use your favourite software for preparing posters such as Adobe Illustrator, Microsoft PowerPoint. We also prepared a beamer poster style latex template (default to A0 size) for the academic/scientific community.  
 
 Based on the oxford-poster (https://github.com/gbaydin/oxford-poster)  
 Based on the I6pd2 style created by Thomas Deselaers an Philippe Dreuw.  
 
-Written by Ye Kyaw Thu, Affiliate Professor, CADT, Cambodia  
+Written by Ye Kyaw Thu
 Last updated: 25 July 2023  
 email: yktnlp@gmail.com
 
-Update by Peng Lykheang, AI Research Assistant, CADT, Cambodia
+Updated by Peng Lykheang
 Email: khiengly7@gmail.com
 
 ## How to Compile and Open the PDF Poster
