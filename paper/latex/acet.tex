@@ -1,0 +1,181 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{acet}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{url}
+
+%\usepackage[dvipdfm]{color,graphicx} % for dvipdfm(x)
+\usepackage{color,graphicx} % for dvips(k)
+
+\title{Instructions for ACET 2023 Proceedings\\(Submission and Style Guide)}
+\author{First Author\affilA \and Second Author\affilB \and Third Author\affilB \and Fourth Author\affilA\\
+\affilA School of XXXXXXXXX  XXXXXXXXXXXXXX \\
+XXXXXXXXX University, XXXXXXX \\
+\affilB XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX \\
+%\affilC XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX \\
+%\affilD XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX \\
+{\tt \{author\_1,author\_4\}@idri.edu.kh,  \{author\_2,author\_3\}@cadt.edu.kh}}
+
+\summary{
+This document is an example of what submission manuscript to
+ACET 2023 should look like. Authors are asked to conform to the
+directions reported in this document.  The research in the paper needs 
+to be original and have sufficient academic background and technical 
+component. Every paper should include an abstract with 150-300 words.  
+At the end of the abstract, skip a line and then type ``Keywords:'' 
+(bold and followed by a colon) followed by up to five (5) words that 
+describe the focus and contribution of the paper.
+}
+
+\begin{document}
+\maketitle
+
+\medskip
+\noindent{\bf Keywords:} Style Guide, ACET 2023,ACET 2022, ONA 2018, ONA 2017, KNLP 2016
+
+\section{General Instructions}
+
+The paper size of final proceedings printing is A4 paper (210mm by
+297mm).
+
+Print all text, including section titles and figures, in two-column
+format where each column is 7.5cm by 23.7cm and there is a 1.0cm space
+between the two columns.  Exceptions to the two-column format include
+the title at the top of the first page and any full-width figures or
+tables.  Start all pages directly under the top margin.  Text should be
+centered on each page.  On A4 paper, this roughly means leaving 2.5cm
+margins on left and right sides of each page as well as a 3.0cm margin
+on the top of each page.
+
+Type single spaced.  Indent when starting a new paragraph.  Use Times
+Roman font with 11 points for text, 12 points for subsection headings,
+13 points for section headings and 15 points for title.
+
+\subsection{Pages for submission}
+
+Long papers may consist of up to eight (8) pages of content, plus unlimited pages of references. Final versions of long papers will be given one additional page of content (up to 9 pages), so that reviewers’ comments can be taken into account.
+
+\subsection{Electronically-available resources}
+
+This file along with the \LaTeX{} style file and the bibliography style file are available at \url{https://github.com/CADT/ACET_2023_templates/tree/main/paper/}. The Microsoft Word template file is also present at the same URL.  We strongly recommend the use of these style files, that have been appropriately tailored for the ACET 2023 camera-ready manuscript.
+
+\section{Format}
+
+\begin{table*}[ht]
+\caption{Summary of font style}
+\label{fontstyle}
+\centering
+\begin{tabular}{lcc} \hline\hline
+Elements & Style in MSWord & Size in \LaTeX \\ \hline
+\bf Title & 14pt Bold & \verb+\Large+ \\
+\bf Authors' Name & 12pt Bold & \verb+\large+ \\
+Authors' Affiliation & 12pt & \verb+\large+ \\
+\bf ``Abstract'' & 11pt Bold & \verb+\normalsize+ \\
+Abstract Text & 11pt & \verb+\normalsize+ \\
+\bf ``Keywords:'' & 11pt Bold & \verb+\normalsize+ \\
+Keywords itselves & 11pt & \verb+\normalsize+ \\
+\bf Section Headings & 12pt Bold & \verb+\large+ \\
+\bf Subsection Headings & 11pt Bold & \verb+\normalsize+ \\
+Text & 11pt & \verb+\normalsize+ \\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Title, authors' names and affiliations}
+
+Place the title at the top of the first page, followed by the authors'
+names and their affiliations.  Long title should be typed on two lines
+without a blank line intervening.  The title of the paper should be
+writen in bold in 14 point font.  The first letter of word except
+preposition (i.e., of, with, on, in, for), definite article (the) and
+indefinite article (a, an) in the title should be capitalized.  The
+authors name' must be in bold in 12 point font, followed the title with
+a line space skipped.  The affiliation should followed the authors name,
+in 12 point font.
+
+Center the title across both columns.  Use the two-column format only
+when you begin the abstract.  Note for \LaTeX{}, use \verb+\and+ to
+separate authors from the same affiliation, and \verb+\AND+ for starting
+an author block in the separated line.
+
+\subsection{Abstract and keywords}
+
+Type the abstract at the beginning of the first column.  Center the word
+{\bf Abstract} in 11 point bold font above the body of the abstract.
+Use 11 point font for the body of abstract.  Every paper should include
+an abstract with 150-300 words.  
+
+At the end of the abstract, skip a line and then type ``Keywords:''
+(11pt bold and followed by a colon) followed by up to five (5) words
+that describe the focus and contribution of the paper.
+
+\subsection{Text}
+
+Begin typing the main body of the text immediately after the keywords
+with 11 point font, observing the two-column format as shown in this
+example.
+
+\subsection{Section headings}
+
+Type and label section headings in 12pt bold font.  Use numbered
+sections, in order to facilitate cross references.
+
+\subsection{Subsection headings}
+
+Type and label section headings in 11pt bold font.  Use numbered
+sections, in order to facilitate cross references.
+
+\subsection{Font styles}
+
+{\bf References}: Citations within the text appear in bracket as
+[Number] such as \cite{ACM:83}, \cite{APA}, \cite{Vichet_2015}, \cite{Ye_KhmerSMT_2015} and \cite{Ye_KhmerPOS_2017}.  Gather the full set of references together under the heading {\bf References}; place the section before any {\bf Appendices}, unless they contain references. Provide as complete a citation as possible, using a consistent format.
+
+{\bf Appendixes}: Appendixes, if any, directly follow the text and the
+references (but see above).  Letter them in sequence and provide an
+informative title: {\bf Appendix A. Title of Appendix.}
+
+\subsection{Graphics}
+
+{\bf Illustrations}: Place figures, tables, and photographs in the paper
+near where they are first discussed, rather than at the end, if
+possible.  Wide illustrations may run across both columns.  See
+\figref{sampleimg} for include an illustration.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=7cm]{./fig/ACET_logo.png}
+\caption{Sample Image} \label{sampleimg}
+\end{center}
+\end{figure} 
+
+{\bf Captions}: Provide a caption for every illustration; number each
+one sequentially in the form: ``Figure 1:  Caption of the Figure.''
+``Table 1:  Caption of the Table.''  Type the captions for figures below
+the figures.  Type the captions for tables above the tables (see
+\figref{fontstyle}).
+
+
+\section{Style of Camera-Ready Manuscript}
+
+The maximum length of camera-ready manuscripts is limited up to eight (9) pages of content, plus unlimited pages of references. All illustrations, references, and appendices must be accommodated within these page limits, also observing the formatting instructions given in the present document.  {\bf Note that DO NOT put a page number in each page.}
+
+\section{For More Information}
+
+For more information or queries complying to the submission process,
+e-mail {\tt acet@cadt.edu.kh} sufficiently before the submission
+deadline so that alternate arrangements can be made.  For help with
+difficulties in electronic submission or technical problems, you can
+contact by the above e-mail.
+
+\subsection*{Acknowledgment}
+
+Thanks to XXXXXXXXXXX.  This format is a modification of ONA 2018, SNLP 2013, KICSS2006 
+and IJCKS2007 style file.
+
+
+\bibliographystyle{unsrt}
+\bibliography{acet-sample}
+
+
+\end{document}

@@ -1,0 +1,256 @@
+\typeout{Submission Style for IJCKS2007 (ifdim fixed version)}
+
+\newcommand{\figref}[1]{Figure \ref{#1}}
+\newcommand{\tabref}[1]{Table \ref{#1}}
+
+\setlength{\textwidth}{15.9cm}
+\setlength{\textheight}{23.7cm}
+\setlength{\oddsidemargin}{25mm}
+\advance\oddsidemargin by-1in
+\setlength{\evensidemargin}{25mm}
+\advance\evensidemargin by-1in
+\setlength{\topmargin}{30mm}
+\advance\topmargin by-1in
+
+\setlength{\columnsep}{1cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength\footskip{1.5cm}
+\def\baselinestretch{0.95}%
+\flushbottom \twocolumn \sloppy
+\pagestyle{empty}
+
+%\clubpenalty = 10000
+%\widowpenalty = 10000
+
+\def\affilA{$^{\dag}$}
+\def\affilB{$^{\ddag}$}
+\def\affilC{$^{*}$}
+\def\affilD{$^{**}$}
+\def\affilE{$^{\star}$}
+
+\def\summary#1{\gdef\@summary{#1}}
+
+\def\maketitle{\par
+\begingroup
+\setcounter{page}{0}
+\global\@topnum\z@ \twocolumn[\@maketitle]
+\endgroup
+\let\maketitle\relax
+\let\@maketitle\relax
+\begin{center}
+{\bf Abstract}
+\end{center}%
+% \begin{quote}
+\noindent\@summary
+% \end{quote}
+}
+
+\def\@maketitle{
+\null % \vspace{-1cm}
+\begin{center}
+{\Large\bf \@title \par} \vskip 1.5em
+{\def\and{\bf\unskip\enspace{\hskip 1em plus 2fil}\enspace}
+\def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil
+       \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}%
+\def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
+        \vskip 0.2em
+         \hbox to \linewidth\bgroup\large \hfil\hfil
+           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}%
+%
+\hbox to \linewidth\bgroup \hfil\hfil
+  \hbox to 0pt\bgroup\large\hss \begin{tabular}[t]{c}\bf \@author
+                          \end{tabular}\hss\egroup
+  \hfil\hfil\egroup}
+\end{center}
+\vskip 1em
+}
+
+
+% ---------------------------------------------------------------------------
+% We're never going to need a table of contents, so just flush it to
+% save space --- suggested by drstrip@sandia-2
+\def\addcontentsline#1#2#3{}
+
+
+% ---------------------------------------------------------------------------
+% bibliography
+
+\def\thebibliography#1{\section*{References}
+ \global\def\@listi{\leftmargin\leftmargini
+             \labelwidth\leftmargini \advance\labelwidth-\labelsep
+             \topsep 1pt plus 2pt minus 1pt
+             \parsep 0.25ex plus 1pt \itemsep 0.25ex plus 1pt}
+ \list {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+  \advance\leftmargin\labelsep\usecounter{enumi}}
+  \def\newblock{\hskip .11em plus .33em minus -.07em}
+  \sloppy
+  \sfcode`\.=1000\relax}
+
+\def\@up#1{\raise.2ex\hbox{#1}}
+
+% most of cite format is from aclsub.sty by SMS
+
+% don't box citations, separate with ; and a space
+% also, make the penalty between citations negative: a good place to break
+% changed comma back to semicolon pj 2/1/90
+% \def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+% \def\@citea{}\@cite{\@for\@citeb:=#2\do
+%   {\@citea\def\@citea{;\penalty\@citeseppen\ }\@ifundefined
+%      {b@\@citeb}{{\bf ?}\@warning
+%      {Citation `\@citeb' on page \thepage \space undefined}}%
+% {\csname b@\@citeb\endcsname}}}{#1}}
+
+% don't box citations, separate with ; and a space
+% Replaced for multiple citations (pj)
+% don't box citations and also add space, semicolon between multiple citations
+\def\@citex[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+ \def\@citea{}\@cite{\@for\@citeb:=#2\do
+   {\@citea\def\@citea{; }\@ifundefined
+     {b@\@citeb}{{\bf ?}\@warning
+      {Citation `\@citeb' on page \thepage \space undefined}}%
+{\csname b@\@citeb\endcsname}}}{#1}}
+
+% Allow short (name-less) citations, when used in
+% conjunction with a bibliography style that creates labels like
+%       \citename{<names>, }<year>
+%
+\let\@internalcite\cite
+\def\cite{\def\citename##1{##1, }\@internalcite}
+\def\shortcite{\def\citename##1{}\@internalcite}
+\def\newcite{\leavevmode\def\citename##1{{##1} (}\@internalciteb}
+
+% Macros for \newcite, which leaves name in running text, and is
+% otherwise like \shortcite.
+\def\@citexb[#1]#2{\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+ \def\@citea{}\@newcite{\@for\@citeb:=#2\do
+  {\@citea\def\@citea{;\penalty\@m\ }\@ifundefined
+     {b@\@citeb}{{\bf ?}\@warning
+     {Citation `\@citeb' on page \thepage \space undefined}}%
+\hbox{\csname b@\@citeb\endcsname}}}{#1}}
+\def\@internalciteb{\@ifnextchar [{\@tempswatrue\@citexb}{\@tempswafalse\@citexb[]}}
+
+\def\@newcite#1#2{{#1\if@tempswa, #2\fi)}}
+
+\def\@biblabel#1{\def\citename##1{##1}[#1]\hfill}
+
+%%% More changes made by SMS (originals in latex.tex)
+% Use parentheses instead of square brackets in the text.
+%%% \def\@cite#1#2{({#1\if@tempswa , #2\fi})}
+
+% Don't put a label in the bibliography at all.  Just use the unlabeled format
+% instead.
+%%%\def\thebibliography#1{\vskip\parskip%
+%%%\vskip\baselineskip%
+%%%\def\baselinestretch{1}%
+%%%\ifx\@currsize\normalsize\@normalsize\else\@currsize\fi%
+%%%\vskip-\parskip%
+%%%\vskip-\baselineskip%
+%%%\section*{References\@mkboth
+%%% {References}{References}}\list
+%%% {}{\setlength{\labelwidth}{0pt}\setlength{\leftmargin}{\parindent}
+%%% \setlength{\itemindent}{-\parindent}}
+%%% \def\newblock{\hskip .11em plus .33em minus -.07em}
+%%% \sloppy\clubpenalty4000\widowpenalty4000
+%%% \sfcode`\.=1000\relax}
+%%%\let\endthebibliography=\endlist
+
+% Allow for a bibliography of sources of attested examples
+%%%\def\thesourcebibliography#1{\vskip\parskip%
+%%%\vskip\baselineskip%
+%%%\def\baselinestretch{1}%
+%%%\ifx\@currsize\normalsize\@normalsize\else\@currsize\fi%
+%%%\vskip-\parskip%
+%%%\vskip-\baselineskip%
+%%%\section*{Sources of Attested Examples\@mkboth
+%%% {Sources of Attested Examples}{Sources of Attested Examples}}\list
+%%% {}{\setlength{\labelwidth}{0pt}\setlength{\leftmargin}{\parindent}
+%%% \setlength{\itemindent}{-\parindent}}
+%%% \def\newblock{\hskip .11em plus .33em minus -.07em}
+%%% \sloppy\clubpenalty4000\widowpenalty4000
+%%% \sfcode`\.=1000\relax}
+%%%\let\endthesourcebibliography=\endlist
+
+%%%\def\@lbibitem[#1]#2{\item[]\if@filesw
+%%%      { \def\protect##1{\string ##1\space}\immediate
+%%%        \write\@auxout{\string\bibcite{#2}{#1}}\fi\ignorespaces}}
+
+%%%\def\@bibitem#1{\item\if@filesw \immediate\write\@auxout
+%%%       {\string\bibcite{#1}{\the\c@enumi}}\fi\ignorespaces}
+
+% ---------------------------------------------------------------------------
+% sections with less space
+\def\section{\@startsection {section}{1}{\z@}{-2.0ex plus
+  -0.5ex minus -.2ex}{1.5ex plus 0.3ex minus .2ex}{\large\bf\raggedright}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus
+  -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{1.5ex plus
+ 0.5ex minus .2ex}{0.5ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus
+ 0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection{subparagraph}{5}{\parindent}{1.5ex plus
+ 0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+
+% ---------------------------------------------------------------------------
+% Footnotes
+\footnotesep 6.65pt %
+\skip\footins 9pt plus 4pt minus 2pt
+\def\footnoterule{\kern-3pt \hrule width 5pc \kern 2.6pt }
+\setcounter{footnote}{0}
+
+% ---------------------------------------------------------------------------
+% Lists and paragraphs
+\parindent 1em
+\topsep 4pt plus 1pt minus 2pt
+\partopsep 1pt plus 0.5pt minus 0.5pt
+\itemsep 2pt plus 1pt minus 0.5pt
+\parsep 2pt plus 1pt minus 0.5pt
+
+\leftmargin 2em \leftmargini\leftmargin \leftmarginii 2em
+\leftmarginiii 1.5em \leftmarginiv 1.0em \leftmarginv .5em \leftmarginvi .5em
+\labelwidth\leftmargini\advance\labelwidth-\labelsep \labelsep 5pt
+
+\def\@listi{\leftmargin\leftmargini}
+\def\@listii{\leftmargin\leftmarginii
+ \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+ \topsep 2pt plus 1pt minus 0.5pt
+ \parsep 1pt plus 0.5pt minus 0.5pt
+ \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+  \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+  \topsep 1pt plus 0.5pt minus 0.5pt
+  \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
+  \itemsep \topsep}
+\def\@listiv{\leftmargin\leftmarginiv
+   \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+\def\@listv{\leftmargin\leftmarginv
+   \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+\def\@listvi{\leftmargin\leftmarginvi
+   \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+\abovedisplayskip 7pt plus2pt minus5pt%
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  0pt plus3pt%
+\belowdisplayshortskip  4pt plus3pt minus3pt%
+
+
+%%% Fig/Table Caption style
+\long\def\@makecaption#1#2{% \@makecaption redefine
+ \vskip\abovecaptionskip
+ %% \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+ %%  \else\sbox\@tempboxa{#1. #2}% : to .
+ %% \fi
+ \sbox\@tempboxa{#1. #2}% : to .
+ \ifdim \wd\@tempboxa >\hsize%
+  %% \iftdir #1\hskip1zw#2\relax\par
+   %%  \else #1. #2\relax\par\fi% : to .
+  #1. #2\relax\par% : to .
+ \else
+  \global \@minipagefalse
+  \hbox to\hsize{\hfil\box\@tempboxa\hfil}% centering
+%   \hbox to\hsize{\box\@tempboxa\hfil}%      left
+%   \hbox to\hsize{\hfil\box\@tempboxa}%      right
+ \fi
+ \vskip\belowcaptionskip}
+
+
