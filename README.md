@@ -1,2 +1,2 @@
-# ACET_2023_templates
-Paper and poster templates for ACET 2023 conference of CADT
+# ACET_2024_templates
+Paper and poster templates for ACET 2024 conference of CADT
